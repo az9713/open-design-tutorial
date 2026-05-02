@@ -1,0 +1,158 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1200" viewBox="0 0 1800 1200" role="img" aria-labelledby="title desc">
+  <title id="title">Open Design Request Lifecycle</title>
+  <desc id="desc">A numbered flow showing how a user prompt becomes a local project file and preview.</desc>
+  <defs>
+    <style>
+      .bg { fill: #f7f6f2; }
+      .title { font: 800 48px Arial, sans-serif; fill: #17202a; }
+      .subtitle { font: 400 23px Arial, sans-serif; fill: #506070; }
+      .lane { font: 800 22px Arial, sans-serif; fill: #17202a; }
+      .box-title { font: 800 19px Arial, sans-serif; fill: #17202a; }
+      .box-text { font: 400 15.5px Arial, sans-serif; fill: #34495e; }
+      .tiny { font: 400 13px Arial, sans-serif; fill: #5d6d7e; }
+      .num { font: 800 17px Arial, sans-serif; fill: white; }
+      .box { stroke-width: 2; rx: 14; ry: 14; }
+      .arrow { stroke: #283747; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+      .dash { stroke-dasharray: 8 8; }
+    </style>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M2,2 L10,6 L2,10 z" fill="#283747" />
+    </marker>
+  </defs>
+  <rect class="bg" width="1800" height="1200" />
+  <text class="title" x="70" y="80">Prompt To Preview: Runtime Request Lifecycle</text>
+  <text class="subtitle" x="72" y="119">The UI streams a run; the daemon spawns a local CLI; the CLI writes files; the file workspace renders them.</text>
+
+  <text class="lane" x="85" y="174">Browser UI</text>
+  <line x1="70" y1="195" x2="1730" y2="195" stroke="#ccd4dc" />
+  <text class="lane" x="85" y="404">Daemon</text>
+  <line x1="70" y1="425" x2="1730" y2="425" stroke="#ccd4dc" />
+  <text class="lane" x="85" y="688">Local Agent + Files</text>
+  <line x1="70" y1="709" x2="1730" y2="709" stroke="#ccd4dc" />
+  <text class="lane" x="85" y="938">Preview + Persistence</text>
+  <line x1="70" y1="959" x2="1730" y2="959" stroke="#ccd4dc" />
+
+  <rect class="box" x="150" y="230" width="250" height="130" fill="#ffffff" stroke="#2d6cdf" />
+  <circle cx="180" cy="260" r="17" fill="#2d6cdf" /><text class="num" x="175" y="266">1</text>
+  <text class="box-title" x="207" y="266">ProjectView.handleSend</text>
+  <text class="box-text" x="175" y="302">Persist user message</text>
+  <text class="box-text" x="175" y="326">Create assistant placeholder</text>
+  <text class="tiny" x="175" y="348">ProjectView.tsx</text>
+
+  <rect class="box" x="480" y="230" width="250" height="130" fill="#ffffff" stroke="#2d6cdf" />
+  <circle cx="510" cy="260" r="17" fill="#2d6cdf" /><text class="num" x="505" y="266">2</text>
+  <text class="box-title" x="537" y="266">streamViaDaemon</text>
+  <text class="box-text" x="505" y="302">POST /api/runs</text>
+  <text class="box-text" x="505" y="326">GET /api/runs/:id/events</text>
+  <text class="tiny" x="505" y="348">providers/daemon.ts</text>
+
+  <rect class="box" x="810" y="230" width="250" height="130" fill="#ffffff" stroke="#2d6cdf" />
+  <circle cx="840" cy="260" r="17" fill="#2d6cdf" /><text class="num" x="835" y="266">3</text>
+  <text class="box-title" x="867" y="266">SSE Consumer</text>
+  <text class="box-text" x="835" y="302">Track last event id</text>
+  <text class="box-text" x="835" y="326">Reconnect and translate events</text>
+  <text class="tiny" x="835" y="348">parseSseFrame, translateAgentEvent</text>
+
+  <path class="arrow" d="M400 295 H470" />
+  <path class="arrow" d="M730 295 H800" />
+
+  <rect class="box" x="150" y="465" width="260" height="155" fill="#ffffff" stroke="#1f9d55" />
+  <circle cx="180" cy="495" r="17" fill="#1f9d55" /><text class="num" x="175" y="501">4</text>
+  <text class="box-title" x="207" y="501">createChatRunService</text>
+  <text class="box-text" x="175" y="537">Create run id and event buffer</text>
+  <text class="box-text" x="175" y="561">Fan out SSE clients</text>
+  <text class="box-text" x="175" y="585">Support replay, cancel, TTL</text>
+  <text class="tiny" x="175" y="607">apps/daemon/src/runs.ts</text>
+
+  <rect class="box" x="500" y="465" width="270" height="155" fill="#ffffff" stroke="#1f9d55" />
+  <circle cx="530" cy="495" r="17" fill="#1f9d55" /><text class="num" x="525" y="501">5</text>
+  <text class="box-title" x="557" y="501">Compose Instructions</text>
+  <text class="box-text" x="525" y="537">Skill + DESIGN.md + metadata</text>
+  <text class="box-text" x="525" y="561">cwd hint + file list</text>
+  <text class="box-text" x="525" y="585">attachment hints</text>
+  <text class="tiny" x="525" y="607">contracts/prompts/system.ts</text>
+
+  <rect class="box" x="860" y="465" width="270" height="155" fill="#ffffff" stroke="#1f9d55" />
+  <circle cx="890" cy="495" r="17" fill="#1f9d55" /><text class="num" x="885" y="501">6</text>
+  <text class="box-title" x="917" y="501">Resolve Agent</text>
+  <text class="box-text" x="885" y="537">Find agent definition</text>
+  <text class="box-text" x="885" y="561">Sanitize model/reasoning</text>
+  <text class="box-text" x="885" y="585">Choose stdin/file/argv prompt</text>
+  <text class="tiny" x="885" y="607">agents.ts, server.ts</text>
+
+  <rect class="box" x="1220" y="465" width="270" height="155" fill="#ffffff" stroke="#1f9d55" />
+  <circle cx="1250" cy="495" r="17" fill="#1f9d55" /><text class="num" x="1245" y="501">7</text>
+  <text class="box-title" x="1277" y="501">Spawn Child Process</text>
+  <text class="box-text" x="1245" y="537">cwd = .od/projects/&lt;id&gt;</text>
+  <text class="box-text" x="1245" y="561">Inject OD_BIN and project env</text>
+  <text class="box-text" x="1245" y="585">stdout/stderr become stream inputs</text>
+  <text class="tiny" x="1245" y="607">child_process.spawn</text>
+
+  <path class="arrow" d="M410 543 H490" />
+  <path class="arrow" d="M770 543 H850" />
+  <path class="arrow" d="M1130 543 H1210" />
+  <path class="arrow dash" d="M605 360 V455" />
+
+  <rect class="box" x="150" y="745" width="285" height="145" fill="#ffffff" stroke="#b25c00" />
+  <circle cx="180" cy="775" r="17" fill="#b25c00" /><text class="num" x="175" y="781">8</text>
+  <text class="box-title" x="207" y="781">Local CLI Runs</text>
+  <text class="box-text" x="175" y="817">Claude/Codex/Gemini/etc.</text>
+  <text class="box-text" x="175" y="841">Reads prompt and project files</text>
+  <text class="box-text" x="175" y="865">Calls tools through its own loop</text>
+
+  <rect class="box" x="535" y="745" width="285" height="145" fill="#ffffff" stroke="#b25c00" />
+  <circle cx="565" cy="775" r="17" fill="#b25c00" /><text class="num" x="560" y="781">9</text>
+  <text class="box-title" x="592" y="781">Writes Files</text>
+  <text class="box-text" x="560" y="817">HTML, Markdown, SVG, media</text>
+  <text class="box-text" x="560" y="841">Optional artifact manifests</text>
+  <text class="box-text" x="560" y="865">Project cwd is the output boundary</text>
+
+  <rect class="box" x="920" y="745" width="285" height="145" fill="#ffffff" stroke="#b25c00" />
+  <circle cx="950" cy="775" r="17" fill="#b25c00" /><text class="num" x="945" y="781">10</text>
+  <text class="box-title" x="977" y="781">Daemon Parses Stream</text>
+  <text class="box-text" x="945" y="817">Structured parser if available</text>
+  <text class="box-text" x="945" y="841">Plain stdout fallback</text>
+  <text class="box-text" x="945" y="865">Emit agent/stdout/stderr/end</text>
+
+  <rect class="box" x="1305" y="745" width="285" height="145" fill="#ffffff" stroke="#b25c00" />
+  <circle cx="1335" cy="775" r="17" fill="#b25c00" /><text class="num" x="1330" y="781">11</text>
+  <text class="box-title" x="1362" y="781">Media Side Path</text>
+  <text class="box-text" x="1330" y="817">Agent can call od media generate</text>
+  <text class="box-text" x="1330" y="841">Daemon writes image/video/audio</text>
+  <text class="box-text" x="1330" y="865">Same file workspace renders it</text>
+
+  <path class="arrow" d="M435 817 H525" />
+  <path class="arrow" d="M820 817 H910" />
+  <path class="arrow dash" d="M1490 620 C1540 660, 1540 705, 1490 745" />
+  <path class="arrow dash" d="M1060 745 C1000 690, 1160 650, 1350 620" />
+
+  <rect class="box" x="150" y="995" width="285" height="125" fill="#ffffff" stroke="#7d3c98" />
+  <circle cx="180" cy="1025" r="17" fill="#7d3c98" /><text class="num" x="175" y="1031">12</text>
+  <text class="box-title" x="207" y="1031">Chat Updates</text>
+  <text class="box-text" x="175" y="1067">Text, tool cards, status, usage</text>
+  <text class="tiny" x="175" y="1094">Persisted in messages table</text>
+
+  <rect class="box" x="535" y="995" width="285" height="125" fill="#ffffff" stroke="#7d3c98" />
+  <circle cx="565" cy="1025" r="17" fill="#7d3c98" /><text class="num" x="560" y="1031">13</text>
+  <text class="box-title" x="592" y="1031">File Refresh</text>
+  <text class="box-text" x="560" y="1067">GET /api/projects/:id/files</text>
+  <text class="tiny" x="560" y="1094">Auto-open on Write tool result</text>
+
+  <rect class="box" x="920" y="995" width="285" height="125" fill="#ffffff" stroke="#7d3c98" />
+  <circle cx="950" cy="1025" r="17" fill="#7d3c98" /><text class="num" x="945" y="1031">14</text>
+  <text class="box-title" x="977" y="1031">Renderer Registry</text>
+  <text class="box-text" x="945" y="1067">HTML/deck/markdown/SVG/media</text>
+  <text class="tiny" x="945" y="1094">FileViewer.tsx</text>
+
+  <rect class="box" x="1305" y="995" width="285" height="125" fill="#ffffff" stroke="#7d3c98" />
+  <circle cx="1335" cy="1025" r="17" fill="#7d3c98" /><text class="num" x="1330" y="1031">15</text>
+  <text class="box-title" x="1362" y="1031">User Iterates</text>
+  <text class="box-text" x="1330" y="1067">Continue, attach files, export</text>
+  <text class="tiny" x="1330" y="1094">Same project folder becomes context</text>
+
+  <path class="arrow" d="M1205 817 C1270 865, 250 945, 290 990" />
+  <path class="arrow" d="M435 1058 H525" />
+  <path class="arrow" d="M820 1058 H910" />
+  <path class="arrow" d="M1205 1058 H1295" />
+</svg>
+

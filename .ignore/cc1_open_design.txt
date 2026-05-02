@@ -1,0 +1,396 @@
+
+simon@Simon_laptop MINGW64 ~
+$ cd Downloads/claude_design_witsam/
+
+simon@Simon_laptop MINGW64 ~/Downloads/claude_design_witsam
+$ claude-yolo --chrome --name witsam
+╭─── Claude Code v2.1.126 ─────────────────────────────────────────────────────╮
+│                                                    │ Tips for getting        │
+│                 Welcome back Simon!                │ started                 │
+│                                                    │ Run /init to create a … │
+│                       ▐▛███▜▌                      │ ─────────────────────── │
+│                      ▝▜█████▛▘                     │ What's new              │
+│                        ▘▘ ▝▝                       │ The `/model` picker no… │
+│    Sonnet 4.6 · Claude Max · az9713@yahoo.com's    │ - Added `claude projec… │
+│    Organization                                    │ `--dangerously-skip-pe… │
+│          ~\Downloads\claude_design_witsam          │ /release-notes for more │
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+> Commit and push to github.com/az9713/claude-design-agent-patterns. use gh cli    to create the new repo. make it private.
+
+● Let me check the current state of the working directory first.
+
+● Bash(cd "C:\Users\simon\Downloads\claude_design_witsam" && git status && git
+      log --oneline -5 2>/dev/null || echo "No git history")
+  ⎿  fatal: not a git repository (or any of the parent directories): .git
+     No git history
+
+  Listed 1 directory (ctrl+o to expand)
+
+● Not a git repo yet. I'll initialize it, create the GitHub repo via gh, commit
+  the files, and push.
+
+● Bash(cd "C:\Users\simon\Downloads\claude_design_witsam" && git init && git add
+       claude_design_agent_patterns.md claude_design_agent_patterns.txt
+      transcript.txt && git…)                                                     ⎿  Initialized empty Git repository in C:/Users/simon/Downloads/claude_de
+     sign_witsam/.git/
+     On branch main
+     … +8 lines (ctrl+o to expand)
+
+● Bash(cd "C:\Users\simon\Downloads\claude_design_witsam" && git commit -m
+      "$(cat <<'EOF'
+      Add Claude design agent patterns and transcript…)
+  ⎿  [main (root-commit) ad839cb] Add Claude design agent patterns and tran
+     script
+      3 files changed, 2297 insertions(+)
+     … +3 lines (ctrl+o to expand)
+                                                                                ● Bash(cd "C:\Users\simon\Downloads\claude_design_witsam" && gh repo create
+      az9713/claude-design-agent-patterns --private --source=. --remote=origin
+      --push)                                                                     ⎿  Running in the background (↓ to manage)
+
+● Bash(sleep 8 && cat
+      "C:\Users\simon\AppData\Local\Temp\claude\C--Users-simon-Downloads-claude-      design-witsam\dd7fb83e-d8ef-48b5-bdf1-6dc48fa763da\tasks\bovld8hfh.outp…)   ⎿  https://github.com/az9713/claude-design-agent-patterns
+     To https://github.com/az9713/claude-design-agent-patterns.git
+      * [new branch]      HEAD -> main
+     branch 'main' set up to track 'origin/main'.
+                                                                                ● Background command "Create private GitHub repo and push" completed (exit code
+0)
+● Done. The private repo is live at
+  https://github.com/az9713/claude-design-agent-patterns with all 3 files
+  committed and pushed to main.
+✻ Sautéed for 9m 12s
+
+> /superpowers:brainstorming
+● Let me check the current project state before we dive in.
+
+  Searched for 1 pattern (ctrl+o to expand)
+
+> /superpowers:brainstorming                                                                                                                                    ● What idea would you like to brainstorm and turninto a design?
+
+────────────────────────────────────────────────────────────────────── witsam ──> /exit                                                                         ────────────────────────────────────────────────────────────────────────────────/exit                           Exit the CLI
+/debug-chrome-extension         Diagnose and fix Claude Code Chrome
+                                extension connection issues. Use when /chro…
+/context-layer-generator        Generates three context layer artifacts for                                     a code module: MODULE_MANIFEST.md (structur…                                                                                                              Resume this session with:
+claude --resume "witsam"
+
+simon@Simon_laptop MINGW64 ~/Downloads/claude_design_witsam (main)
+$ claude-yolo --chrome --name witsam --continue
+╭─── Claude Code v2.1.126 ─────────────────────────────────────────────────────╮
+│                                                    │ Tips for getting        │
+│                 Welcome back Simon!                │ started                 │
+│                                                    │ Run /init to create a … │
+│                       ▐▛███▜▌                      │ ─────────────────────── │
+│                      ▝▜█████▛▘                     │ What's new              │
+│                        ▘▘ ▝▝                       │ The `/model` picker no… │
+│    Sonnet 4.6 · Claude Max · az9713@yahoo.com's    │ - Added `claude projec… │
+│    Organization                                    │ `--dangerously-skip-pe… │
+│          ~\Downloads\claude_design_witsam          │ /release-notes for more │
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+> Commit and push to github.com/az9713/claude-design-agent-patterns. use gh cli
+   to create the new repo. make it private.
+
+● Let me check the current state of the working directory first.
+
+● Bash(cd "C:\Users\simon\Downloads\claude_design_witsam" && git status && git
+      log --oneline -5 2>/dev/null || echo "No git history")
+  ⎿  fatal: not a git repository (or any of the parent directories): .git
+     No git history
+
+  Listed 1 directory (ctrl+o to expand)
+
+● Not a git repo yet. I'll initialize it, create the GitHub repo via gh, commit
+  the files, and push.
+
+● Bash(cd "C:\Users\simon\Downloads\claude_design_witsam" && git init && git add
+       claude_design_agent_patterns.md claude_design_agent_patterns.txt
+      transcript.txt && git…)
+  ⎿  Initialized empty Git repository in C:/Users/simon/Downloads/claude_de
+     sign_witsam/.git/
+     On branch main
+     … +8 lines (ctrl+o to expand)
+
+● Bash(cd "C:\Users\simon\Downloads\claude_design_witsam" && git commit -m
+      "$(cat <<'EOF'
+      Add Claude design agent patterns and transcript…)
+  ⎿  [main (root-commit) ad839cb] Add Claude design agent patterns and tran
+     script
+      3 files changed, 2297 insertions(+)
+     … +3 lines (ctrl+o to expand)
+
+● Bash(cd "C:\Users\simon\Downloads\claude_design_witsam" && gh repo create
+      az9713/claude-design-agent-patterns --private --source=. --remote=origin
+      --push)
+  ⎿  Running in the background (↓ to manage)
+
+● Bash(sleep 8 && cat
+      "C:\Users\simon\AppData\Local\Temp\claude\C--Users-simon-Downloads-claude-
+      design-witsam\dd7fb83e-d8ef-48b5-bdf1-6dc48fa763da\tasks\bovld8hfh.outp…)
+  ⎿  https://github.com/az9713/claude-design-agent-patterns
+     To https://github.com/az9713/claude-design-agent-patterns.git
+      * [new branch]      HEAD -> main
+     branch 'main' set up to track 'origin/main'.
+
+● Background command "Create private GitHub repo and push" completed (exit code
+0)
+
+● Done. The private repo is live at
+  https://github.com/az9713/claude-design-agent-patterns with all 3 files
+  committed and pushed to main.
+
+✻ Crunched for 9m 12s
+
+> /superpowers:brainstorming
+
+● Let me check the current project state before we dive in.
+
+  Searched for 1 pattern (ctrl+o to expand)
+
+> /superpowers:brainstorming
+
+● What idea would you like to brainstorm and turn into a design?
+
+> /exit
+  ⎿  Goodbye!
+
+> do not commit and pus *.txt. please remove them
+● Bash(cd "C:\Users\simon\Downloads\claude_design_witsam" && git rm "*.txt" &&
+      git status)
+  ⎿  rm 'claude_design_agent_patterns.txt'
+     rm 'transcript.txt'
+     On branch main
+     … +10 lines (ctrl+o to expand)
+
+● Write(.gitignore)
+  ⎿  Wrote 1 lines to .gitignore
+      1 *.txt
+
+● Bash(cd "C:\Users\simon\Downloads\claude_design_witsam" && git add .gitignore
+      && git commit -m "$(cat <<'EOF'
+      Remove .txt files and ignore them going forward…)                           ⎿  Running in the background (↓ to manage)
+
+> Create a README.md. mention that this summary is based on the YT video
+  "Inside Claude's Design Agents"                                                 https://www.youtube.com/watch?v=V-djAkt0t-M&t=140s.
+  Read 2 files (ctrl+o to expand)
+
+● Background command "Commit removal and .gitignore, then push" completed (exit code 0)
+
+● Done — .txt files removed and .gitignore added. Now creating the README.
+
+  Now let me read the existing markdown file to inform the README.
+
+  Read 1 file (ctrl+o to expand)
+
+● Write(README.md)
+  ⎿  Wrote 16 lines to README.md
+       2 # Claude Design Agent Patterns
+         Claude Design, based on the YouTube video **[Inside Claude's Des
+         *.n Agents](https://www.youtube.com/watch?v=V-djAkt0t-M&t=140s)*
+       4
+       6 ## The Six Patterns
+          source of truth before generating anythingt anchors itself to a
+       8 2. **Structured memory** — reusable memory artifacts built from
+       9 3. **Iterative refinement loop** — user feedback drives successi
+      10 4. **Self-QA / reflection loop** — the agent critiques its own o
+         utput before surfacing it
+     … +15 lines (ctrl+o to expand)
+
+● Bash(cd "C:\Users\simon\Downloads\claude_design_witsam" && git add README.md
+      && git commit -m "$(cat <<'EOF'
+      Add README with source video attribution…)
+  ⎿  Running in the background (↓ to manage)
+
+  Read 1 file (ctrl+o to expand)
+
+● Background command "Commit and push README" completed (exit code 0)
+● All done. The repo now has:
+  - .txt files removed (and *.txt in .gitignore)
+  - README.md added with the video link and six-pattern summary, pushed to main
+
+✻ Crunched for 9m 30s
+
+> in README.md, mention that these patterns are extracted by ChatGPT Thinking     5.5 Extended.
+
+  Read 1 file (ctrl+o to expand)
+
+● Update(README.md)
+  ⎿  Added 1 line, removed 1 line
+      1  # Claude Design Agent Patterns
+      2                                                                               3 -A summary of the six-pattern vertical-agent architecture behind
+        -Claude Design, based on the YouTube video **[Inside Claude's Des
+        -ign Agents](https://www.youtube.com/watch?v=V-djAkt0t-M&t=140s)*
+        -*.
+      3 +A summary of the six-pattern vertical-agent architecture behind
+        +Claude Design, based on the YouTube video **[Inside Claude's Des
+        +ign Agents](https://www.youtube.com/watch?v=V-djAkt0t-M&t=140s)*
+        +*. Patterns extracted by **ChatGPT Thinking 5.5 Extended**.
+      4
+      5  ## The Six Patterns
+      6
+
+● Bash(cd "C:\Users\simon\Downloads\claude_design_witsam" && git add README.md
+      && git commit -m "$(cat <<'EOF'
+      Note patterns extracted by ChatGPT Thinking 5.5 Extended…)                  ⎿  Running in the background (↓ to manage)
+
+  Read 1 file (ctrl+o to expand)
+
+● Background command "Commit and push README update" completed (exit code 0)
+● Done — README updated and pushed.
+
+✻ Cogitated for 4m 12s
+
+> /superpowers:brainstorming                                                                                                                                    ● What would you like to brainstorm?                                                                                                              * Spelunking… (running stop hooks… 0/3 · 12s · ↓ 678 tokens · thinking)
+────────────────────────────────────────────────────────────────────── witsam ──
+> 
+────────────────────────────────────────────────────────────────────────────────  | Sonnet 4.6 | claude_design_witsam | main | ctx 11% | 5h 11% | 7d 20% |
+  ⏵⏵ bypass permissions on (shift+tab to cycle)
+
+Resume this session with:
+claude --resume "witsam"
+
+simon@Simon_laptop MINGW64 ~/Downloads/claude_design_witsam (main)
+$ cd ..
+
+simon@Simon_laptop MINGW64 ~/Downloads
+$ ls
+AI_TODO.txt                                disk_cleanup/
+a__last__no_more/                          hyperframes_me/
+agent_harness_theo_t3gg/                   long_running_agents_addyosmani/
+all_in_podcast_05012026/                   minecraft_headless_agent_allaboutai/
+claude_design_clone_open_design_chase_ai/  projects/
+claude_design_witsam/                      projects_pending/
+codex_isenberg/                            today_05012026/
+collections/                               windows_diagnostics_05012026/
+desktop.ini                                日常/
+
+simon@Simon_laptop MINGW64 ~/Downloads
+$ cd *chase*
+
+simon@Simon_laptop MINGW64 ~/Downloads/claude_design_clone_open_design_chase_ai
+ ▐▛███▜▌   Claude Code v2.1.126
+▝▜█████▛▘  Sonnet 4.6 · Claude Max
+  ▘▘ ▝▝    ~\Downloads\claude_design_clone_open_design_chase_ai\open-design-main
+
+> /technical-docs-writer demystify the what, why and how open-design works. how does it "clone" Claude Design ? https://www.anthropic.com/news/claude-design-anthropic-labs
+
+● I'll start by reading the skill references and auditing the codebase in parallel, then fetch the Claude Design article.
+
+  Searched for 1 pattern, read 2 files (ctrl+o to expand)
+
+● Now let me read the key project documentation and fetch the Claude Design article in parallel.
+
+  Read 3 files (ctrl+o to expand)
+
+● Now let me fetch the Claude Design article and read the remaining key docs in parallel.
+
+● Fetch(https://www.anthropic.com/news/claude-design-anthropic-labs)
+  ⎿  Received 139.6KB (200 OK)
+
+  Read 3 files (ctrl+o to expand)
+
+● Excellent. Let me read the remaining key source files to understand the prompt stack and modes.
+
+  Read 3 files (ctrl+o to expand)
+
+● Now I have a complete picture. Let me call advisor before writing, since this is a substantial documentation task.
+
+● Advising using Opus 4.7
+  ⎿  √ Advisor has reviewed the conversation and will apply the feedback (ctrl+o to expand)
+
+● Smart. Let me verify the actual prompts files before citing them.
+
+  Searched for 2 patterns (ctrl+o to expand)
+
+● The prompts directory doesn't exist yet — the README references planned files. Let me find the actual prompt assembly code.
+
+  Searched for 1 pattern, read 1 file (ctrl+o to expand)
+                                                                                                                                                                                                                  ● The prompts live in the daemon. Let me read them now.                                                                                                                                                                                                                                                                                                                                                                               Read 3 files (ctrl+o to expand)                                                                                                                                                                                                                                                                                                                                                                                                   ● I now have everything I need. Time to write. Creating all four explainer docs now.                                                                                                                                                                                                                                                                                                                                                ● Write(docs\explainer\index.md)                                                                                                                                                                                    ⎿  Wrote 28 lines to docs\explainer\index.md                                                                                                                                                                           2 # Open Design — explainer                                                                                                                                                                                       3 Open Design is the open-source, local-first alternative to Anthropic's Claude Design: a web app that turns a natural-language brief into an editable, previewable design artifact by orchestrating                 the coding agent already on your machine.                                                                                                                                                                      4
+       5 ---
+       6
+       7 ## What's in this explainer
+       8
+       9 | Doc | What it answers |
+      10 |-----|----------------|
+     … +19 lines (ctrl+o to expand)
+
+● Write(docs\explainer\what-is-open-design.md)
+  ⎿  Wrote 98 lines to docs\explainer\what-is-open-design.md
+      2 # What is Open Design?                                                                                                                                                                                          3 **Open Design (OD) is a web app that turns natural-language briefs into editable, previewable design artifacts — prototypes, decks, dashboards, marketing pages — by orchestrating the coding agent
+         already installed on your machine.**
+      4
+      5 ---
+      7 ## The problem it solves
+      8
+      9 In April 2026, Anthropic released [Claude Design](https://www.anthropic.com/news/claude-design-anthropic-labs): a product that takes a brief and produces realistic prototypes, pitch decks, and de
+        sign collateral using Claude Opus 4.7. It went viral because it genuinely worked — the output quality was dramatically above typical AI-generated UI, and the feedback loop (brief → questions → di
+        rection → artifact → refine) felt like working with a senior designer.
+     … +103 lines (ctrl+o to expand)
+
+● Write(docs\explainer\cloning-claude-design.md)
+  ⎿  Wrote 238 lines to docs\explainer\cloning-claude-design.md
+      2 # How Open Design clones Claude Design                                                                                                                                                                          3 The word "clone" here is architectural, not literal. Open Design replicates the *user experience loop* that Claude Design introduced: brief → discovery → direction → artifact → preview → refine →
+         export. The machinery is completely different.
+      4
+      5 This doc maps each step of that loop — what Claude Design does (from its public description), what OD substitutes, and where the two deliberately diverge.
+      6
+      7 > **Caveat on Claude Design internals.** Claude Design is closed-source. Everything here about its user-facing behavior comes from [Anthropic's published description](https://www.anthropic.com/ne
+        ws/claude-design-anthropic-labs). Its internal implementation is unknown. Comparisons are behavioral, not architectural.
+      8
+      9 ---
+     … +249 lines (ctrl+o to expand)
+
+● Write(docs\explainer\the-prompt-stack.md)
+  ⎿  Wrote 234 lines to docs\explainer\the-prompt-stack.md
+      1 # The prompt stack                                                                                                                                                                                              2
+      3 The prompt stack is what turns a generic coding-agent CLI into a senior designer with a working filesystem, a deterministic palette library, and a checklist culture.                                           4
+      5 Every time a user sends a message, the daemon assembles a system prompt from up to seven ordered layers, then passes it to the spawned CLI. This doc walks through each layer: what it is, what it
+        contributes, and where the code lives.
+      6
+      7 The composer is `apps/daemon/src/prompts/system.ts` — `composeSystemPrompt(input)`.
+      8
+      9 ---
+     … +247 lines (ctrl+o to expand)
+
+● Write(docs\explainer\key-concepts.md)
+  ⎿  Wrote 87 lines to docs\explainer\key-concepts.md
+      2 # Key concepts                                                                                                                                                                                                  3 Definitions for every term used across the OD codebase and docs. Alphabetical within each group.
+      4
+      5 ---
+      6
+      7 ## Core abstractions
+      8
+      9 **`<artifact>` tag** — The XML wrapper the agent emits at the end of every generation turn. It contains a complete, standalone HTML document (or references to project files for multi-file artifac
+        ts). The web app's parser (`apps/web/src/artifacts/parser.ts`) extracts the content and renders it in the sandboxed preview iframe. After `</artifact>`, the agent stops — no narration, no summary
+        .
+     … +113 lines (ctrl+o to expand)
+
+● Now let me validate cross-links and check for any issues.
+
+  Searched for 3 patterns (ctrl+o to expand)                                                                                                                                                                      
+● No stubs, no stale paths. Let me also confirm the source-code links in the-prompt-stack.md point to real files.                                                                                                 
+  Searched for 1 pattern (ctrl+o to expand)                                                                                                                                                                                                                                                                                                                                                                                         ● All six source files referenced in the-prompt-stack.md exist. Done.                                                                                                                                                                                                                                                                                                                                                                 ---                                                                                                                                                                                                               Created 5 files in docs/explainer/:                                                                                                                                                                                                                                                                                                                                                                                                 docs/explainer/                                                                                                                                                                                                   ├── index.md                   — navigation hub
+  ├── what-is-open-design.md     — mental model, three-component architecture, six load-bearing ideas
+  ├── cloning-claude-design.md   — step-by-step loop mapping: CD does X → OD does X'
+  ├── the-prompt-stack.md        — code-grounded walkthrough of composeSystemPrompt()
+  └── key-concepts.md            — glossary: ~25 terms across abstractions, adapters, UI, infra
+
+  What each doc answers:
+
+  - What is Open Design — explains the web app + daemon + your-agent architecture, the four modes (prototype/deck/template/design-system), and what OD is deliberately not (not a Figma replacement, not a model
+  router, not a hosted service).
+  - Cloning Claude Design — the centerpiece. Maps all nine steps of the design loop: brief intake → discovery form → brand/direction setup → seed + agent dispatch → generation with live TodoWrite → anti-slop
+  quality gates → sandboxed iframe preview → refinement → export. Includes a full comparison table and a section on what OD deliberately does not copy (bundled model, real-time collaboration).
+  - The prompt stack — closes the real gap in the existing docs. Walks through all seven layers of composeSystemPrompt() with source file pointers: DISCOVERY_AND_PHILOSOPHY → OFFICIAL_DESIGNER_PROMPT → active
+  DESIGN.md → active SKILL.md + pre-flight → project metadata → DECK_FRAMEWORK_DIRECTIVE → MEDIA_GENERATION_CONTRACT. Explains why the order matters (earlier layers win on conflict; the deck framework is
+  intentionally pinned last). Notes that official-system.ts explicitly identifies itself as adapted from Claude Design's designer prompt.
+  - Key concepts — glossary for <artifact>, DESIGN.md, skill, SKILL.md, daemon, stamp, sidecar, namespace, ACP, pi-rpc, stream formats, discovery form, five-dimensional critique, TodoWrite, surgical edit, BYOK
+  proxy, and tools-dev.
+
+✻ Baked for 9m 29s
+
+─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── open_design ──
+> 
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  | Sonnet 4.6 | open-design-main | ctx 34% | 5h 19% | 7d 21% |                                                                                                             new task? /clear to save 135k tokens
+  ⏵⏵ bypass permissions on (shift+tab to cycle)
+

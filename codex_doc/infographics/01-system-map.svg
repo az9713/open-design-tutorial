@@ -1,0 +1,140 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1200" viewBox="0 0 1800 1200" role="img" aria-labelledby="title desc">
+  <title id="title">Open Design System Map</title>
+  <desc id="desc">A layered architecture map of Open Design showing web, daemon, agents, contracts, sidecars, packaging, storage, and tests.</desc>
+  <defs>
+    <style>
+      .bg { fill: #f7f6f2; }
+      .title { font: 800 48px Arial, sans-serif; fill: #17202a; }
+      .subtitle { font: 400 23px Arial, sans-serif; fill: #506070; }
+      .section-title { font: 800 25px Arial, sans-serif; fill: #17202a; }
+      .box-title { font: 800 21px Arial, sans-serif; fill: #17202a; }
+      .box-text { font: 400 17px Arial, sans-serif; fill: #34495e; }
+      .small { font: 400 15px Arial, sans-serif; fill: #586a7a; }
+      .num { font: 800 18px Arial, sans-serif; fill: white; }
+      .tag { font: 700 14px Arial, sans-serif; fill: #ffffff; }
+      .box { stroke-width: 2; rx: 16; ry: 16; }
+      .thin { stroke-width: 1.4; }
+      .arrow { stroke: #283747; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+      .dash { stroke-dasharray: 9 8; }
+    </style>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M2,2 L10,6 L2,10 z" fill="#283747" />
+    </marker>
+  </defs>
+  <rect class="bg" x="0" y="0" width="1800" height="1200" />
+  <text class="title" x="70" y="80">Open Design: 360-Degree System Map</text>
+  <text class="subtitle" x="72" y="119">The product is a web UI plus a local daemon, local agent CLIs, real files on disk, and sidecar orchestration.</text>
+
+  <rect class="box" x="70" y="170" width="360" height="210" fill="#ffffff" stroke="#2d6cdf" />
+  <circle cx="105" cy="205" r="18" fill="#2d6cdf" /><text class="num" x="100" y="211">1</text>
+  <text class="box-title" x="135" y="211">apps/web</text>
+  <text class="box-text" x="95" y="250">Next.js 16 + React UI</text>
+  <text class="box-text" x="95" y="279">Project creation, chat, files</text>
+  <text class="box-text" x="95" y="308">Preview/export/deploy controls</text>
+  <text class="small" x="95" y="344">Key files: App.tsx, ProjectView.tsx,</text>
+  <text class="small" x="95" y="365">providers/daemon.ts, FileViewer.tsx</text>
+
+  <rect class="box" x="510" y="170" width="420" height="250" fill="#ffffff" stroke="#1f9d55" />
+  <circle cx="545" cy="205" r="18" fill="#1f9d55" /><text class="num" x="540" y="211">2</text>
+  <text class="box-title" x="575" y="211">apps/daemon</text>
+  <text class="box-text" x="535" y="250">Express API + SQLite + local file store</text>
+  <text class="box-text" x="535" y="279">Detects and spawns code-agent CLIs</text>
+  <text class="box-text" x="535" y="308">Runs SSE event service and stream parsers</text>
+  <text class="box-text" x="535" y="337">Owns skills, design systems, media, deploy</text>
+  <text class="small" x="535" y="374">Key files: server.ts, agents.ts, runs.ts,</text>
+  <text class="small" x="535" y="395">db.ts, projects.ts, skills.ts, media.ts</text>
+
+  <rect class="box" x="1010" y="170" width="340" height="250" fill="#ffffff" stroke="#b25c00" />
+  <circle cx="1045" cy="205" r="18" fill="#b25c00" /><text class="num" x="1040" y="211">3</text>
+  <text class="box-title" x="1075" y="211">Local Agent CLIs</text>
+  <text class="box-text" x="1035" y="250">Claude Code, Codex, Gemini</text>
+  <text class="box-text" x="1035" y="279">OpenCode, Cursor Agent, Copilot</text>
+  <text class="box-text" x="1035" y="308">ACP / Pi adapters where configured</text>
+  <text class="box-text" x="1035" y="337">Write files in project cwd</text>
+  <text class="small" x="1035" y="374">OD delegates the agent loop instead of</text>
+  <text class="small" x="1035" y="395">reimplementing a seventh agent.</text>
+
+  <rect class="box" x="1430" y="170" width="300" height="250" fill="#ffffff" stroke="#7d3c98" />
+  <circle cx="1465" cy="205" r="18" fill="#7d3c98" /><text class="num" x="1460" y="211">4</text>
+  <text class="box-title" x="1495" y="211">Storage</text>
+  <text class="box-text" x="1455" y="250">.od/app.sqlite</text>
+  <text class="box-text" x="1455" y="279">.od/projects/&lt;id&gt;/</text>
+  <text class="box-text" x="1455" y="308">.artifact.json sidecars</text>
+  <text class="box-text" x="1455" y="337">uploads, HTML, decks, media</text>
+  <text class="small" x="1455" y="374">Metadata in SQLite; deliverables stay</text>
+  <text class="small" x="1455" y="395">as normal local files.</text>
+
+  <path class="arrow" d="M430 275 H500" />
+  <path class="arrow" d="M930 292 H1000" />
+  <path class="arrow" d="M1350 300 H1420" />
+
+  <rect class="box" x="70" y="500" width="500" height="235" fill="#fffdf8" stroke="#2d6cdf" />
+  <circle cx="105" cy="535" r="18" fill="#2d6cdf" /><text class="num" x="100" y="541">5</text>
+  <text class="box-title" x="135" y="541">packages/contracts</text>
+  <text class="box-text" x="95" y="581">Pure TypeScript web/daemon contract layer</text>
+  <text class="box-text" x="95" y="610">API DTOs, SSE unions, errors, project metadata</text>
+  <text class="box-text" x="95" y="639">Prompt composer in src/prompts/system.ts</text>
+  <text class="small" x="95" y="681">Must not import Next, Express, fs/process APIs,</text>
+  <text class="small" x="95" y="702">browser APIs, SQLite, or sidecar internals.</text>
+
+  <rect class="box" x="650" y="500" width="500" height="235" fill="#fffdf8" stroke="#8e44ad" />
+  <circle cx="685" cy="535" r="18" fill="#8e44ad" /><text class="num" x="680" y="541">6</text>
+  <text class="box-title" x="715" y="541">Sidecar Packages</text>
+  <text class="box-text" x="675" y="581">sidecar-proto: Open Design app/mode/source</text>
+  <text class="box-text" x="675" y="610">sidecar: IPC, paths, launch env, ports</text>
+  <text class="box-text" x="675" y="639">platform: process stamps, spawn, stop, logs</text>
+  <text class="small" x="675" y="681">Five stamp fields: app, mode, namespace, ipc, source.</text>
+  <text class="small" x="675" y="702">Everything else consumes these primitives.</text>
+
+  <rect class="box" x="1230" y="500" width="500" height="235" fill="#fffdf8" stroke="#b25c00" />
+  <circle cx="1265" cy="535" r="18" fill="#b25c00" /><text class="num" x="1260" y="541">7</text>
+  <text class="box-title" x="1295" y="541">tools-dev and packaged runtime</text>
+  <text class="box-text" x="1255" y="581">tools-dev starts daemon, web, desktop</text>
+  <text class="box-text" x="1255" y="610">apps/packaged starts packaged sidecars</text>
+  <text class="box-text" x="1255" y="639">desktop discovers web URL through IPC</text>
+  <text class="small" x="1255" y="681">Ports are transport. Namespace paths and IPC</text>
+  <text class="small" x="1255" y="702">identify runtime instances.</text>
+
+  <path class="arrow dash" d="M320 500 C370 455, 450 435, 540 420" />
+  <path class="arrow dash" d="M900 500 C860 445, 780 430, 720 420" />
+  <path class="arrow dash" d="M1480 500 C1440 455, 1320 435, 1250 420" />
+
+  <rect class="box" x="70" y="815" width="360" height="230" fill="#ffffff" stroke="#34495e" />
+  <circle cx="105" cy="850" r="18" fill="#34495e" /><text class="num" x="100" y="856">8</text>
+  <text class="box-title" x="135" y="856">Skills</text>
+  <text class="box-text" x="95" y="896">File-based SKILL.md workflows</text>
+  <text class="box-text" x="95" y="925">Mode, surface, defaults, references</text>
+  <text class="box-text" x="95" y="954">Side files get skill-root preamble</text>
+  <text class="small" x="95" y="995">Folder: skills/&lt;id&gt;/</text>
+
+  <rect class="box" x="510" y="815" width="360" height="230" fill="#ffffff" stroke="#34495e" />
+  <circle cx="545" cy="850" r="18" fill="#34495e" /><text class="num" x="540" y="856">9</text>
+  <text class="box-title" x="575" y="856">Design Systems</text>
+  <text class="box-text" x="535" y="896">DESIGN.md bundles</text>
+  <text class="box-text" x="535" y="925">Title, category, surface, swatches</text>
+  <text class="box-text" x="535" y="954">Injected as authoritative tokens</text>
+  <text class="small" x="535" y="995">Folder: design-systems/&lt;id&gt;/</text>
+
+  <rect class="box" x="950" y="815" width="360" height="230" fill="#ffffff" stroke="#34495e" />
+  <circle cx="985" cy="850" r="18" fill="#34495e" /><text class="num" x="980" y="856">10</text>
+  <text class="box-title" x="1015" y="856">Prompt Templates</text>
+  <text class="box-text" x="975" y="896">Image/video prompt references</text>
+  <text class="box-text" x="975" y="925">Editable snapshot stored in metadata</text>
+  <text class="box-text" x="975" y="954">Folded into system prompt</text>
+  <text class="small" x="975" y="995">Folder: prompt-templates/</text>
+
+  <rect class="box" x="1390" y="815" width="340" height="230" fill="#ffffff" stroke="#34495e" />
+  <circle cx="1425" cy="850" r="18" fill="#34495e" /><text class="num" x="1420" y="856">11</text>
+  <text class="box-title" x="1455" y="856">Tests and E2E</text>
+  <text class="box-text" x="1415" y="896">Vitest, node:test, Playwright</text>
+  <text class="box-text" x="1415" y="925">Agent parsers, contracts, artifacts</text>
+  <text class="box-text" x="1415" y="954">Sidecar and UI coverage</text>
+  <text class="small" x="1415" y="995">Folders: apps/*/tests, packages/*, e2e</text>
+
+  <path class="arrow" d="M430 930 H500" />
+  <path class="arrow" d="M870 930 H940" />
+  <path class="arrow" d="M1310 930 H1380" />
+
+  <rect x="70" y="1100" width="1660" height="54" rx="12" fill="#17202a" />
+  <text class="tag" x="95" y="1133">Contributor rule of thumb: contracts first for web/daemon shapes, daemon for local authority, web for experience, sidecar layers for lifecycle, platform for process primitives.</text>
+</svg>

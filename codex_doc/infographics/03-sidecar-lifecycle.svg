@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1200" viewBox="0 0 1800 1200" role="img" aria-labelledby="title desc">
+  <title id="title">Open Design Sidecar Lifecycle</title>
+  <desc id="desc">A diagram of tools-dev and packaged runtime launching daemon, web, and desktop sidecars through namespace-scoped IPC and process stamps.</desc>
+  <defs>
+    <style>
+      .bg { fill: #f7f6f2; }
+      .title { font: 800 48px Arial, sans-serif; fill: #17202a; }
+      .subtitle { font: 400 23px Arial, sans-serif; fill: #506070; }
+      .heading { font: 800 25px Arial, sans-serif; fill: #17202a; }
+      .box-title { font: 800 20px Arial, sans-serif; fill: #17202a; }
+      .box-text { font: 400 16px Arial, sans-serif; fill: #34495e; }
+      .small { font: 400 14px Arial, sans-serif; fill: #5d6d7e; }
+      .banner-title { font: 800 20px Arial, sans-serif; fill: #ffffff; }
+      .banner-text { font: 400 16px Arial, sans-serif; fill: #eef3f7; }
+      .num { font: 800 17px Arial, sans-serif; fill: white; }
+      .box { stroke-width: 2; rx: 14; ry: 14; }
+      .arrow { stroke: #283747; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+      .dash { stroke-dasharray: 8 8; }
+    </style>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M2,2 L10,6 L2,10 z" fill="#283747" />
+    </marker>
+  </defs>
+  <rect class="bg" width="1800" height="1200" />
+  <text class="title" x="70" y="80">Sidecar Lifecycle: Dev And Packaged Runtime</text>
+  <text class="subtitle" x="72" y="119">Ports move around. Namespace roots, IPC paths, and five-field process stamps keep managed runtimes discoverable.</text>
+
+  <text class="heading" x="95" y="185">Shared Protocol And Primitives</text>
+  <rect class="box" x="90" y="215" width="410" height="155" fill="#ffffff" stroke="#8e44ad" />
+  <circle cx="120" cy="245" r="17" fill="#8e44ad" /><text class="num" x="115" y="251">1</text>
+  <text class="box-title" x="147" y="251">sidecar-proto</text>
+  <text class="box-text" x="120" y="287">APP_KEYS, modes, sources, env names</text>
+  <text class="box-text" x="120" y="311">IPC messages and status shapes</text>
+  <text class="box-text" x="120" y="335">Stamp fields: app, mode, namespace, ipc, source</text>
+
+  <rect class="box" x="565" y="215" width="410" height="155" fill="#ffffff" stroke="#8e44ad" />
+  <circle cx="595" cy="245" r="17" fill="#8e44ad" /><text class="num" x="590" y="251">2</text>
+  <text class="box-title" x="622" y="251">sidecar</text>
+  <text class="box-text" x="595" y="287">Resolve namespace roots and IPC paths</text>
+  <text class="box-text" x="595" y="311">Create launch env and JSON IPC servers</text>
+  <text class="box-text" x="595" y="335">Allocate ports and bootstrap runtime</text>
+
+  <rect class="box" x="1040" y="215" width="410" height="155" fill="#ffffff" stroke="#8e44ad" />
+  <circle cx="1070" cy="245" r="17" fill="#8e44ad" /><text class="num" x="1065" y="251">3</text>
+  <text class="box-title" x="1097" y="251">platform</text>
+  <text class="box-text" x="1070" y="287">Serialize and read process stamps</text>
+  <text class="box-text" x="1070" y="311">Spawn, log, list, stop process trees</text>
+  <text class="box-text" x="1070" y="335">Wait for HTTP and read log tails</text>
+
+  <path class="arrow" d="M500 292 H555" />
+  <path class="arrow" d="M975 292 H1030" />
+
+  <text class="heading" x="95" y="455">Development Path: pnpm tools-dev</text>
+  <rect class="box" x="90" y="485" width="300" height="145" fill="#ffffff" stroke="#2d6cdf" />
+  <circle cx="120" cy="515" r="17" fill="#2d6cdf" /><text class="num" x="115" y="521">4</text>
+  <text class="box-title" x="147" y="521">Resolve Config</text>
+  <text class="box-text" x="120" y="557">.tmp/tools-dev/&lt;namespace&gt;</text>
+  <text class="box-text" x="120" y="581">IPC path per app</text>
+  <text class="box-text" x="120" y="605">Log path per app</text>
+
+  <rect class="box" x="470" y="485" width="300" height="145" fill="#ffffff" stroke="#2d6cdf" />
+  <circle cx="500" cy="515" r="17" fill="#2d6cdf" /><text class="num" x="495" y="521">5</text>
+  <text class="box-title" x="527" y="521">Start Daemon</text>
+  <text class="box-text" x="500" y="557">apps/daemon/sidecar</text>
+  <text class="box-text" x="500" y="581">OD_PORT -> Express URL</text>
+  <text class="box-text" x="500" y="605">status/shutdown IPC</text>
+
+  <rect class="box" x="850" y="485" width="300" height="145" fill="#ffffff" stroke="#2d6cdf" />
+  <circle cx="880" cy="515" r="17" fill="#2d6cdf" /><text class="num" x="875" y="521">6</text>
+  <text class="box-title" x="907" y="521">Start Web</text>
+  <text class="box-text" x="880" y="557">apps/web/sidecar</text>
+  <text class="box-text" x="880" y="581">Proxies /api, /artifacts, /frames</text>
+  <text class="box-text" x="880" y="605">OD_WEB_PORT -> web URL</text>
+
+  <rect class="box" x="1230" y="485" width="300" height="145" fill="#ffffff" stroke="#2d6cdf" />
+  <circle cx="1260" cy="515" r="17" fill="#2d6cdf" /><text class="num" x="1255" y="521">7</text>
+  <text class="box-title" x="1287" y="521">Start Desktop</text>
+  <text class="box-text" x="1260" y="557">Electron shell</text>
+  <text class="box-text" x="1260" y="581">Asks web sidecar for URL</text>
+  <text class="box-text" x="1260" y="605">Exposes inspect IPC</text>
+
+  <path class="arrow" d="M390 558 H460" />
+  <path class="arrow" d="M770 558 H840" />
+  <path class="arrow" d="M1150 558 H1220" />
+  <path class="arrow dash" d="M1380 485 C1340 430, 1010 405, 1000 485" />
+
+  <text class="heading" x="95" y="725">Packaged Path: apps/packaged</text>
+  <rect class="box" x="90" y="755" width="300" height="155" fill="#ffffff" stroke="#1f9d55" />
+  <circle cx="120" cy="785" r="17" fill="#1f9d55" /><text class="num" x="115" y="791">8</text>
+  <text class="box-title" x="147" y="791">Packaged Entry</text>
+  <text class="box-text" x="120" y="827">Read config and namespace</text>
+  <text class="box-text" x="120" y="851">Ensure data/log/cache/runtime dirs</text>
+  <text class="box-text" x="120" y="875">Apply Electron path overrides</text>
+
+  <rect class="box" x="470" y="755" width="300" height="155" fill="#ffffff" stroke="#1f9d55" />
+  <circle cx="500" cy="785" r="17" fill="#1f9d55" /><text class="num" x="495" y="791">9</text>
+  <text class="box-title" x="527" y="791">Spawn Daemon Sidecar</text>
+  <text class="box-text" x="500" y="827">OD_DATA_DIR and OD_RESOURCE_ROOT</text>
+  <text class="box-text" x="500" y="851">OD_PORT=0 dynamic transport</text>
+  <text class="box-text" x="500" y="875">Wait for status URL</text>
+
+  <rect class="box" x="850" y="755" width="300" height="155" fill="#ffffff" stroke="#1f9d55" />
+  <circle cx="880" cy="785" r="17" fill="#1f9d55" /><text class="num" x="875" y="791">10</text>
+  <text class="box-title" x="907" y="791">Spawn Web Sidecar</text>
+  <text class="box-text" x="880" y="827">Use daemon port from status</text>
+  <text class="box-text" x="880" y="851">OD_WEB_OUTPUT_MODE=server</text>
+  <text class="box-text" x="880" y="875">Wait for web URL</text>
+
+  <rect class="box" x="1230" y="755" width="300" height="155" fill="#ffffff" stroke="#1f9d55" />
+  <circle cx="1260" cy="785" r="17" fill="#1f9d55" /><text class="num" x="1255" y="791">11</text>
+  <text class="box-title" x="1287" y="791">Run Desktop Main</text>
+  <text class="box-text" x="1260" y="827">Register od:// entry protocol</text>
+  <text class="box-text" x="1260" y="851">discoverWebUrl returns packaged URL</text>
+  <text class="box-text" x="1260" y="875">Close sidecars on shutdown</text>
+
+  <path class="arrow" d="M390 832 H460" />
+  <path class="arrow" d="M770 832 H840" />
+  <path class="arrow" d="M1150 832 H1220" />
+
+  <rect x="90" y="990" width="1440" height="115" rx="16" fill="#17202a" />
+  <text class="banner-title" x="120" y="1030">Load-bearing invariant</text>
+  <text class="banner-text" x="120" y="1065">Ports are only transport details. Runtime identity is namespace + IPC + stamped process args.</text>
+  <text class="banner-text" x="120" y="1090">That is why desktop asks web sidecar for the URL, and why packaged paths never include daemon or web ports.</text>
+</svg>
